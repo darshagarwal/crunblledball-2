@@ -1,4 +1,4 @@
-var package;
+var paper;
 var container,container2,container3;
 var ground;
 const Engine = Matter.Engine;
@@ -6,41 +6,48 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Render = Matter.Render;
-function preload()
-{
-
-}
 
 function setup() {
-	createCanvas(1500, 700);
-
+	createCanvas(1600, 700);
+	rectMode(CENTER);
 
 	engine = Engine.create();
 	world = engine.world;
 
-	package = new CrubledPaper(200,100,20); 
+	paper = new CrubledPaper(200,450,70);
 
 	//Create a Ground
-	ground = new Ground(750,600,1600,20); 
+	ground = new Ground(width/2,670,width,20);
 
 
-	container = new Container(40,50);
+	container = new Container(1200,650);
 	//container2 = new Container(1200,570,200,40);
 	//container3 = new Container(1300,490,40,200);
-	Engine.run(engine);
+	var render = Render.create({
+		element: document.body,
+		engine: engine,
+		options: {
+		  width: 1600,
+		  height: 700,
+		  wireframes: false
+		}
+	  });
+  
+	  Engine.run(engine);
+	  Render.run(render);
 }
 
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background(230);
  // circle(100,570,50);
-  package.display();
+  paper.display();
   container.display();
   //container2.display();
  // container3.display();
   ground.display();
-  drawSprites();
+  //drawSprites();
 
 }
 
