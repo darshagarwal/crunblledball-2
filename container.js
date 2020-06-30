@@ -4,7 +4,7 @@ class Container {
             isStatic:true,
         }
         this.body = Bodies.rectangle(1080,490, width,height,options);
-        this.image = loadImage("sprites/dustbingreen.png");
+        this.image = loadImage("dustbingreen.png");
         this.width = width;
         this.height = height;
         World.add(world, this.body);
