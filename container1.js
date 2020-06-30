@@ -1,4 +1,4 @@
-class Container {
+class Container1 {
     constructor(x,y,width,height){
         var options={
             isStatic:true,
@@ -8,13 +8,12 @@ class Container {
       this.image = loadImage("sprites/dustbingreen.png");
         this.width = width;
         this.height = height;
-        World.add(world, this.image);
+        World.add(world, this.body);
     }
   display(){
-   // var pos = this.body.position;
-    imageMode(CENTER);
-  //  fill("white");
-    //image(pos.x,pos.y,this.width,this.height);
-    image(this.image,1200,500,250,200);
+   var pos = this.body.position;
+    rectMode(CENTER);
+    fill("white");
+    rect(pos.x,pos.y,this.width,this.height);
   }
 }

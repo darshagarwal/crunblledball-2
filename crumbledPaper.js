@@ -1,37 +1,26 @@
-class CrubledPaper
-{
-	constructor(x,y,r)
-	{
-		var options={
-			isStatic:false,
-			restitution:0.3,
-			friction:0.5,
-			density:1.2
+class CrubledPaper{
+    constructor(x,y,diameter){
+        var options={
+            restitution:0.9,
+            isStatic:false,
+            friction:0.5,
+            density:0.1,
+        }
 
-			
-			}
-		this.x=x;
-		this.y=y;
-		this.r=r
-        this.body=Bodies.circle(this.x, this.y, this.r/2, options);
-        this.image = loadImage("paper.png");
-		World.add(world, this.body);
+        this.body = Bodies.circle(x, y, diameter, options);
+        this.diameter = diameter;
+       World.add(world, this.body);
+       this.image = loadImage("sprites/paper.png")
+    }
 
-	}
-	display()
-	{
-			
-			var paperpos=this.body.position;		
+    display(){
+        var pos = this.body.position;
+        fill("purple");  
+        imageMode(CENTER);
+        image(this.image,pos.x,pos.y,this.diameter);
+        //circle(pos.x,pos.y,this.diameter);
 
-			push()
-			translate(paperpos.x, paperpos.y);
-			rectMode(CENTER)
-			strokeWeight(3);
-			fill(255,0,255)
-            //ellipse(0,0,this.r, this.r);
-            image(this.image,0,0,this.r, this.r);
-			pop()
-			
-	}
+    }
 
 }
+

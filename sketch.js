@@ -1,5 +1,5 @@
 var paper;
-var container,container2,container3;
+var container,container2,container3,wall;
 var ground;
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -8,46 +8,35 @@ const Body = Matter.Body;
 const Render = Matter.Render;
 
 function setup() {
-	createCanvas(1600, 700);
-	rectMode(CENTER);
+	createCanvas(1500, 700);
+
 
 	engine = Engine.create();
 	world = engine.world;
 
-	paper = new CrubledPaper(200,450,70);
+	paper = new CrubledPaper(200,400,70);
 
 	//Create a Ground
-	ground = new Ground(width/2,670,width,20);
+	ground = new Ground(750,600,1600,20); 
 
-
-	container = new Container(1200,650);
-	//container2 = new Container(1200,570,200,40);
-	//container3 = new Container(1300,490,40,200);
-	var render = Render.create({
-		element: document.body,
-		engine: engine,
-		options: {
-		  width: 1600,
-		  height: 700,
-		  wireframes: false
-		}
-	  });
-  
-	  Engine.run(engine);
-	  Render.run(render);
+	wall = new Wall(1550,490,10,30000)
+	container = new Container1(1110,490,5,175);
+	container2 = new Container(1200,570,200,3000);
+	container3 = new Container1(1275,490,5,175);
+	Engine.run(engine);
 }
 
 
 function draw() {
   rectMode(CENTER);
-  background(230);
- // circle(100,570,50);
+  background("white");
+ container3.display();
   paper.display();
-  container.display();
-  //container2.display();
- // container3.display();
   ground.display();
-  //drawSprites();
+  container.display();
+  container2.display();
+  wall.display();
+  drawSprites();
 
 }
 
@@ -56,15 +45,15 @@ function keyPressed(pos, xpos, ypos){
 	  var boject= this.body;
 	  var xpos=xpos;
 	  var ypos=ypos;
-	 // console.log("darsh before "+ xpos);
-	  //console.log("darshbefore" + ypos);
+	  //console.log("darsh before "+ xpos);
+	 // console.log("darshbefore" + ypos);
   
   
 	  
 	  if(keyCode === UP_ARROW){
-		 // console.log("darsh if arrow pressed "+ pos);
+		  console.log("darsh if arrow pressed "+ pos);
 	 
-			 Matter.Body.applyForce( package.body,package.position,{x:85,y:-85});
+			 Matter.Body.applyForce( paper.body,paper.position,{x:85,y:-85});
 		 }
 	 }
 	 
