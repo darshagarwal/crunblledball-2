@@ -10,7 +10,7 @@ class CrubledPaper{
         this.body = Bodies.circle(x, y, diameter, options);
         this.diameter = diameter;
        World.add(world, this.body);
-       this.image = loadImage("sprites/paper.png")
+       this.image = loadImage("paper.png")
     }
 
     display(){

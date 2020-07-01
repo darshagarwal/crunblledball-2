@@ -5,7 +5,6 @@ class Container1 {
             density:0.1,
         }
         this.body = Bodies.rectangle(x, y, width,height,options);
-      this.image = loadImage("sprites/dustbingreen.png");
         this.width = width;
         this.height = height;
         World.add(world, this.body);

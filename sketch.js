@@ -20,9 +20,9 @@ function setup() {
 	ground = new Ground(750,600,1600,20); 
 
 	wall = new Wall(1550,490,10,30000)
-	container = new Container1(1110,490,5,175);
+	container = new Container1(1085,490,5,175);
 	container2 = new Container(1200,570,200,3000);
-	container3 = new Container1(1275,490,5,175);
+	container3 = new Container1(1315,490,5,175);
 	Engine.run(engine);
 }
 
